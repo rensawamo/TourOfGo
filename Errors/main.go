@@ -41,6 +41,7 @@ func (e ErrNegativeSqrt) Error() string {
 func Sqrt(x float64) (float64, error) {
 	// ネガティブ平方根は 実在しない
 	if x < 0 {
+		// しかし fmt.Errorf がくみこまれてるから errorインターフェイスをわざわざいじらなくていい
 		return 0, ErrNegativeSqrt(x)
 	}
 
