@@ -10,7 +10,6 @@ package main
 import (
 	"fmt"
 	"strings"
-
 	"golang.org/x/tour/wc"
 )
 
