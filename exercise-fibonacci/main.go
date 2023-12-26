@@ -8,6 +8,7 @@ package main
 import "fmt"
 
 func fibonacci() func() int {
+	// クロージャは 関数内変数を更新する
 	f2, f1 := 0, 1
 	return func() int {
 		f := f2
