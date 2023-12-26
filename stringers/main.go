@@ -13,7 +13,7 @@ type IPAddr [4]byte
 
 // defaltの IPAdder 構造体の String関数をいじる
 func (i IPAddr) String() string {
-	return fmt.Sprintf("%v,%v,%v,%v", i[0], i[1], i[2], i[3])
+	return fmt.Sprintf("%v.%v.%v.%v", i[0], i[1], i[2], i[3])
 }
 
 func main() {
