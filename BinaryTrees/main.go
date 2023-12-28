@@ -81,7 +81,7 @@ func walk(t *tree.Tree, ch chan int) {
 	}
 
 	walk(t.Left, ch)
-	ch <- t.Value // ぶら下がりが２つあるときにそのバリューをチャネルにおくりこむ
+	ch <- t.Value //  枝の数と valueで判断
 	walk(t.Right, ch)
 }
 
@@ -96,7 +96,7 @@ func Same(t1, t2 *tree.Tree) bool {
 	for {
 		v1, ok1 := <-ch1
 		v2, ok2 := <-ch2
-		//  異なるtreeの場合
+		//  枝の存在 と valueの一致
 		if ok1 != ok2 || v1 != v2 {
 			return false
 		}
