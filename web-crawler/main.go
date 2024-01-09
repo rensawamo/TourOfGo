@@ -42,6 +42,7 @@ func Crawl(url string, depth int, fetcher Fetcher) {
 
 		fmt.Printf("found: %s %q\n", url, body)
 		wg.Add(len(urls)) // 同時に実行する goroutinの数を指定  しっかり数をあわさないと 残りあるっていわれる
+		// bodyのitereater
 		for _, u := range urls {
 			go func(u string) {
 				crawl(u, depth-1) // urls を読み込むごとに goroutinのカウントダウンを減らしていく
