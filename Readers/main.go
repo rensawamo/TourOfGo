@@ -16,7 +16,7 @@ func (r MyReader) Read(b []byte) (int, error) {
 	if b == nil {
 		return 0, fmt.Errorf("nil error")
 	}
-	for i := range b {
+	for i := range b { // byteをAの バイトにしてしまう
 		b[i] = 'A'
 	}
 	fmt.Print("実行") // 無限ストリームの証明
@@ -33,8 +33,8 @@ func main() {
 // 	b := make([]byte, 1024, 2048)
 // 	i, o := 0, 0
 // 	for ; i < 1<<20 && o < 1<<20; i++ { // test 1mb
-// 		n, err := r.Read(b)
-// 		for i, v := range b[:n] {
+// 		n, err := r.Read(b) // 読み込む byteを最大 1024にしている
+// 		for i, v := range b[:n] {  // ひと文字づつ読み出して  文字がA であることをチェックする
 // 			if v != 'A' {
 // 				fmt.Fprintf(os.Stderr, "got byte %x at offset %v, want 'A'\n", v, o+i)
 // 				return
