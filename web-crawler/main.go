@@ -57,6 +57,7 @@ func Crawl(url string, depth int, fetcher Fetcher) {
 	return
 }
 
+// depthはkekyの数
 func main() {
 	Crawl("https://golang.org/", 4, fetcher)
 }
